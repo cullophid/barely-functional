@@ -12,8 +12,10 @@ const curry = ex.curry = (f) => function () {
   }
   return curried.apply(null, arguments)
 }
-const f2 = curry((name, arg, list) => list[name](arg))
-const f3 = curry((name, arg1, arg2, list) => list[name](arg))
+const f2 = curry((name, arg, coll) => {
+  return coll[name](arg)
+})
+const f3 = curry((name, arg1, arg2, coll) => coll[name](arg1, arg2))
 
 arg0.forEach((name) => ex[name] = f2(name, undefined))
 arg1.forEach((name) => ex[name] = f2(name))
@@ -30,6 +32,7 @@ ex.last = (list) => list[list.length -1]
 ex.length = (list) => list.length
 ex.nth = curry((i, list) => list[i])
 ex.range = curry((start, end) => Array(end - start).fill(1).map((e, i) => i + start))
+ex.sum = (list) => list.reduce((sum, e) => sum + e, 0)
 ex.tail = (list) => list.slice(1)
 ex.take = curry((i, list) => list.slice(0, i))
 ex.takeLast = curry((i, list) => list.slice(list.length - (i), list.length))
@@ -40,7 +43,7 @@ ex.values = (object) => Object.keys(object).map((k) => object[k])
 ex.prop = curry((prop, object) => object[prop])
 ex.props = curry((props, object) => props.map((p) => object[p]))
 ex.compose = function () {
-  const fs = Array.prototype.slice.call(arguments)
+  const fs = Array.prototype.slice.call(arguments).reverse()
   return function () {
     const args = Array.prototype.slice.call(arguments)
     return ex
@@ -48,5 +51,4 @@ ex.compose = function () {
       .reduce((arg, f) => f(arg), ex.head(fs).apply(null, args))
   }
 }
-
 module.exports = ex
