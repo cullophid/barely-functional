@@ -1,5 +1,5 @@
 # Barely Functional
-**A Tiny functional programming library **
+*A Tiny functional programming library *
 
 barely-functional is a tiny (2.1Kb without minification) library for doing functional programming. It includes `curry` and `compose`, and wraps several native es5 methods including `.map()` `.reduce()` and `.filter()` and several es6 methods such as `.every()` and `.find()`. The library also contains several non native functions inspired (READ: stolen) from [ramdajs](http://ramdajs.com/).
 
