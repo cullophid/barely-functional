@@ -76,13 +76,13 @@ _.concat([1, 2, 3], [4, 5, 6]);
 
 ###map :: (a -> b) -> [a] -> [b]
 
-###match
+###match :: RegExp -> String -> [String | void 0]
 
 ###nth :: Int -> [a] -> a
 
 ###prop :: String -> Object -> a
 
-###props :: [String] -> Object -> [void 0 | a]
+###props :: [String] -> Object -> [a | void 0]
 
 ###range :: Int -> Int -> [Int]
 
@@ -98,7 +98,7 @@ _.concat([1, 2, 3], [4, 5, 6]);
 
 ###slice :: Int -> Int -> [a] -> [a]
 
-###some :: 
+###some :: (a -> Boolean) -> [a] -> Boolean
 
 ###sort :: [a] -> [a]
 
