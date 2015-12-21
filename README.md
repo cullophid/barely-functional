@@ -1,9 +1,9 @@
 # Barely Functional
 *A Tiny functional programming library *
 
-barely-functional is a tiny (2.1Kb without minification) library for doing functional programming. It includes `curry` 
-and `compose`, and wraps several native es5 methods including `.map()` `.reduce()` and `.filter()` and several es6 
-methods such as `.every()` and `.find()`. The library also contains several non native functions inspired (READ: stolen) 
+barely-functional is a tiny (2.1Kb without minification) library for doing functional programming. It includes `curry`
+and `compose`, and wraps several native es5 methods including `.map()` `.reduce()` and `.filter()` and several es6
+methods such as `.every()` and `.find()`. The library also contains several non native functions inspired (READ: stolen)
 from [ramdajs](http://ramdajs.com/).
 
 
@@ -26,101 +26,214 @@ const _ = require('barely-functional')
 
 ## Functions
 
-###append :: a -> [a] -> [a]
+### append :: a -> [a] -> [a]
 Adds the specified value to the end of the supplied array.
 ```js
 _.append(5, [1, 2, 3, 4]);
 // => [1, 2, 3, 4, 5]
 ```
 
-###compose :: 
+### compose :: ((y -> z), (x -> y) ... (o -> p)(a, b, ..., n -> o)) -> (a, b, ..., n -> z)
+Performs right-to-left function composition. The rightmost function may have any arity; the remaining functions must be unary.
 
-###concat :: [a] -> [a] - [a]
+```js
+const add1  =  (n) => n + 1
+const double  =  (n) => n * 2
+
+const add1AndDouble = _.compose(double, add1)
+
+add1AndDouble(5)
+// => 12
+
+```
+
+### concat :: [a] -> [a] - [a]
 Concatenates two arrays.
 ```js
 _.concat([1, 2, 3], [4, 5, 6]);
 // => [1, 2, 3, 4, 5, 6];
 ```
 
-###curry ::
+### curry :: (* -> a) -> (* -> a)
+Returns a curried equivalent of the provided function. The curried function has two unusual capabilities. First, its arguments needn't be provided one at a time. If f is a ternary function and g is R.curry(f), the following are equivalent:
 
-###drop :: [a] -> [a]
+```js
+const sum3 = _.curry((a, b, c) => a + b + c)
+sum3(1)(2)(3)
+// => 6
+sum3(1)(2, 3)
+// => 6
+sum3(1, 2)(3)
+// => 6
+sum3(1, 2, 3)
+// => 6
+```
 
-###dropLast :: [a] -> [a]
 
-###every :: (a -> Boolean) -> [a] -> Boolean
+### drop :: Number -> [a] -> [a]
+Returns a new list without the first n elements
 
-###filter :: (a -> Boolean) -> [a] -> [a]
+```js
+_.drop(2, [1, 2, 3, 4])
+// => [3, 4]
+```
 
-###find :: (a -> Boolean) -> [a] -> void 0 | a
+### dropLast :: [a] -> [a]
+Returns a new list without the last n elements
 
-###findIndex :: (a -> Boolean) -> [a] -> Int
+```js
+_.dropLast(2, [1, 2, 3, 4])
+// => [1, 2]
+```
+### every :: (a -> Boolean) -> [a] -> Boolean
+Returns true if every element in the list satisfies the predicate function.
 
-###has :: String -> Object -> Boolean
+```js
+_.every(n => n > 2, [2, 3, 4])
+// => false
 
-###head :: [a] -> a
+every(n => n > 2, [3, 4, 5])
+// => true
+```
 
-###includes :: a -> [a] -> Boolean
+### filter :: (a -> Boolean) -> [a] -> [a]
+Returns a new list containing only the elements in the list that satisfies the predicated function.
 
-###indexOf :: a -> [a] -> Int
+```js
+_.filter(n => n > 2, [1, 2, 3, 4])
+// => [3, 4]
+```
 
-###init :: [a] -> [a]
+### find :: (a -> Boolean) -> [a] -> void 0 | a
+Returns the first element satisfying the predicate function. If no element can be found it returns undefined.
+```js
+_.find(n => n === 2, [1, 2, 3,4])
+// => 2
+```
 
-###join :: [a] -> String
+### findIndex :: (a -> Boolean) -> [a] -> Int
+Returns the index of first element satisfying the predicate function. If no element can be found it returns -1.
+```js
+_.findIndex(n => n === 2, [1, 2, 3,4])
+// => 1
+```
 
-###keys :: Object -> [String]
+### has :: String -> Object -> Boolean
+Returns true if the given object has a property with the specified name.
+```js
+_.has('a', {a:2})
+// => true
+_.has('b', {a:2})
+// => false
+```
 
-###last :: [a] -> a
+### head :: [a] -> a
+Returns the first element of a list
+```js
+_.head([1, 2, 3])
+// => 1
+```
 
-###length :: [a] -> Int
+### includes :: a -> [a] -> Boolean
+Returns true if the list includes the given element
+```js
+_.includes('a', ['a', 'b', 'c'])
+// => true
+```
 
-###map :: (a -> b) -> [a] -> [b]
+### indexOf :: a -> [a] -> Int
+Returns the index of the specified element in the list. Returns -1 if the element is not in the list
+```js
+_.indexOf(1, [0, 1, 2, 3])
+// => 1
+```
 
-###match :: RegExp -> String -> [String | void 0]
 
-###nth :: Int -> [a] -> a
+### init :: [a] -> [a]
+Returns all elements of the list except the last
+```js
+_.init([1, 2, 3, 4]])
+// => [1, 2, 3]
+```
 
-###prop :: String -> Object -> a
+### join :: String -> [a] -> String
+Returns a string by concatenating all elements of the list interlaced with the specified string.
 
-###props :: [String] -> Object -> [a | void 0]
+```js
+_.join('|', ['a', 'b', 'c'])
+// => "a|b|c"
 
-###range :: Int -> Int -> [Int]
+### keys :: Object -> [String]
+Returns a list of the given objects keys.
 
-###reduce :: (a -> b -> a) -> a -> [b] -> a
+```js
+_.keys({a: 1, b: 2, c: 3})
+// => ["a", "b", "c"]
+```
 
-###reduceRight :: (a -> b -> a) -> a -> [b] -> a
+### last :: [a] -> a
+Returns the last element of the list.
 
-###replace :: RegExp | String -> String -> String
+```js
+_.last([1, 2, 3])
+// => 3
+```
 
-###reverse :: [a] -> [a]
+### length :: [a] -> Int
+Returns the length of a list / function / string.
 
-###search
+```js
+_.length([1, 2, 3])
+// => 3
+```
 
-###slice :: Int -> Int -> [a] -> [a]
+### map :: (a -> b) -> [a] -> [b]
 
-###some :: (a -> Boolean) -> [a] -> Boolean
+### match :: RegExp -> String -> [String | void 0]
 
-###sort :: [a] -> [a]
+### nth :: Int -> [a] -> a
 
-###split :: String | regExp -> String -> [String]
+### prop :: String -> Object -> a
 
-###sum :: [Number] -> Number
+### props :: [String] -> Object -> [a | void 0]
 
-###tail :: [a] -> [a]
+### range :: Int -> Int -> [Int]
 
-###take :: Int -> [a] -> [a]
+### reduce :: (a -> b -> a) -> a -> [b] -> a
 
-###takeLast :: Int -> [a] -> [a]
+### reduceRight :: (a -> b -> a) -> a -> [b] -> a
 
-###test :: RegExp -> String -> Boolean
+### replace :: RegExp | String -> String -> String
 
-###toLowerCase :: String -> String
+### reverse :: [a] -> [a]
 
-###toUpperCase :: String -> String
+### search
 
-###trim :: String -> String
+### slice :: Int -> Int -> [a] -> [a]
 
-###values :: Object -> [a]
+### some :: (a -> Boolean) -> [a] -> Boolean
+
+### sort :: [a] -> [a]
+
+### split :: String | regExp -> String -> [String]
+
+### sum :: [Number] -> Number
+
+### tail :: [a] -> [a]
+
+### take :: Int -> [a] -> [a]
+
+### takeLast :: Int -> [a] -> [a]
+
+### test :: RegExp -> String -> Boolean
+
+### toLowerCase :: String -> String
+
+### toUpperCase :: String -> String
+
+### trim :: String -> String
+
+### values :: Object -> [a]
 
 ## 2.1Kb is too big!
 basic.js is just 1.1KB. It contains all the native es5/es6 functions as well as curry and compose.
