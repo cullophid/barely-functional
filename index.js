@@ -1,7 +1,7 @@
 'use strict'
 const ex = {}
 const arg0 = ['toLowerCase', 'toUpperCase', 'trim']
-const arg1 = ['concat', 'every', 'filter', 'find', 'findIndex', 'indexOf', 'join', 'map', 'join', 'some', 'sort', 'match', 'split', 'search']
+const arg1 = ['concat', 'every', 'filter', 'find', 'findIndex', 'indexOf', 'join', 'map', 'join', 'some', 'sort', 'match', 'split']
 const arg2 = ['reduce', 'reduceRight', 'replace', 'reduceRight', 'slice']
 
 const curry = ex.curry = (f) => function () {
