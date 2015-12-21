@@ -1,6 +1,6 @@
 'use strict'
 const ex = {}
-const arg0 = ['reverse', 'toLowerCase', 'toUpperCase', 'trim']
+const arg0 = ['toLowerCase', 'toUpperCase', 'trim']
 const arg1 = ['concat', 'every', 'filter', 'find', 'findIndex', 'indexOf', 'join', 'map', 'join', 'some', 'sort', 'match', 'split', 'search']
 const arg2 = ['reduce', 'reduceRight', 'replace', 'reduceRight', 'slice']
 
@@ -32,6 +32,7 @@ ex.last = (list) => list[list.length -1]
 ex.length = (list) => list.length
 ex.nth = curry((i, list) => list[i])
 ex.range = curry((start, end) => Array(end - start).fill(1).map((e, i) => i + start))
+ex.reverse = curry(list => [].concat(list).reverse())
 ex.sum = (list) => list.reduce((sum, e) => sum + e, 0)
 ex.tail = (list) => list.slice(1)
 ex.take = curry((i, list) => list.slice(0, i))
