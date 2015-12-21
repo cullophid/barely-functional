@@ -54,7 +54,7 @@ _.concat([1, 2, 3], [4, 5, 6]);
 // => [1, 2, 3, 4, 5, 6];
 ```
 
-### curry :: (\* -> a) -> (\* -> a)
+### curry :: (\* -> a) -> (\s* -> a)
 Returns a curried equivalent of the provided function. The curried function has two unusual capabilities. First, its arguments needn't be provided one at a time. If f is a ternary function and g is R.curry(f), the following are equivalent:
 
 ```js
