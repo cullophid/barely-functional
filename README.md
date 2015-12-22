@@ -78,13 +78,6 @@ _.drop(2, [1, 2, 3, 4])
 // => [3, 4]
 ```
 
-### dropLast :: [a] -> [a]
-Returns a new list without the last n elements
-
-```js
-_.dropLast(2, [1, 2, 3, 4])
-// => [1, 2]
-```
 ### every :: (a -> Boolean) -> [a] -> Boolean
 Returns true if every element in the list satisfies the predicate function.
 
@@ -338,14 +331,6 @@ Returns the first n elements of a list.
 ```js
 _.take(2, [1, 2, 3, 4])
 // => [1, 2]
-```
-
-### takeLast :: Int -> [a] -> [a]
-Returns the last n elements of a list.
-
-```js
-_.takeLast(2, [1, 2, 3, 4])
-// => [3, 4]
 ```
 
 ### test :: RegExp -> String -> Boolean
