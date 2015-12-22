@@ -15,14 +15,14 @@ from [ramdajs](http://ramdajs.com/).
 ```js
 const _ = require('barely-functional')
 
- const sumOfEven = _.compose(_.sum, _.filter((e) => e % 2 === 0))
+const sumOfEven = _.compose(_.sum, _.filter((e) => e % 2 === 0))
 ```
 
 *Barely functional is written in es6. It will run on node.js v4.0 and up. If you wish to use it in the browser you need to use babel and (webpack/browserify)*
 
 
 ## But ramda is way better...
- Yes it is, but it is also a lot bigger. If you a writing a small module, you might not want to include all of [Ramda](https://http://ramdajs.com).
+Yes it is, but it is also a lot bigger. If you a writing a small module, you might not want to include all of [Ramda](https://http://ramdajs.com).
 
 ## API
 
@@ -104,7 +104,7 @@ _.filter(n => n > 2, [1, 2, 3, 4])
 // => [3, 4]
 ```
 
-### find :: (a -> Boolean) -> [a] -> void 0 | a
+### find :: (a -> Boolean) -> [a] -> a | void 0
 Returns the first element satisfying the predicate function. If no element can be found it returns undefined.
 ```js
 _.find(n => n === 2, [1, 2, 3,4])
@@ -128,21 +128,21 @@ _.has('b', {a:2})
 ```
 
 ### head :: [a] -> a
-Returns the first element of a list
+Returns the first element of a list.
 ```js
 _.head([1, 2, 3])
 // => 1
 ```
 
 ### includes :: a -> [a] -> Boolean
-Returns true if the list includes the given element
+Returns true if the list includes the given element.
 ```js
 _.includes('a', ['a', 'b', 'c'])
 // => true
 ```
 
 ### indexOf :: a -> [a] -> Int
-Returns the index of the specified element in the list. Returns -1 if the element is not in the list
+Returns the index of the specified element in the list. Returns -1 if the element is not in the list.
 ```js
 _.indexOf(1, [0, 1, 2, 3])
 // => 1
@@ -150,7 +150,7 @@ _.indexOf(1, [0, 1, 2, 3])
 
 
 ### init :: [a] -> [a]
-Returns all elements of the list except the last
+Returns all elements of the list except the last.
 ```js
 _.init([1, 2, 3, 4]])
 // => [1, 2, 3]
@@ -162,6 +162,7 @@ Returns a string by concatenating all elements of the list interlaced with the s
 ```js
 _.join('|', ['a', 'b', 'c'])
 // => "a|b|c"
+```
 
 ### keys :: Object -> [String]
 Returns a list of the given objects keys.
@@ -219,7 +220,7 @@ _.prop('msg', {msg: 'hello wold'})
 ```
 
 ### props :: [String] -> Object -> [a | void 0]
-returns a list of values related to the specified properties.
+Returns a list of values related to the specified properties.
 
 ```js
 _.props(['a', 'b', 'c'], {a:1 b: 2, c: 3})
@@ -227,7 +228,7 @@ _.props(['a', 'b', 'c'], {a:1 b: 2, c: 3})
 ```
 
 ### range :: Int -> Int -> [Int]
-returns a list of all integers between the two specified numbers.
+Returns a list of all integers between the two specified numbers.
 the last number is not included.
 
 ```js
@@ -266,7 +267,7 @@ _.replace(/\d/g, 5, '1, 2, 3, 4')
 // => '5, 5, 5, 5'
 ```
 ### reverse :: [a] -> [a]
-returns a new list with the same elements in reverse order.
+Returns a new list with the same elements in reverse order.
 
 ```js
 _.reverse([1, 2, 3])
@@ -274,7 +275,7 @@ _.reverse([1, 2, 3])
 ```
 
 ### slice :: Int -> Int -> [a] -> [a]
-returns a new list containing only the elements from the first index(inclusive) to the last index(exclusive)
+Returns a new list containing only the elements from the first index(inclusive) to the last index(exclusive)
 
 ```js
 _.slice(1, 4, [1, 2, 3, 4, 5])
@@ -283,7 +284,7 @@ _.slice(1, 4, [1, 2, 3, 4, 5])
 
 
 ### some :: (a -> Boolean) -> [a] -> Boolean
-returns true if any of the elements in the list satisfies the predicate function.
+Returns true if any of the elements in the list satisfies the predicate function.
 
 ```js
 _.some(n => n > 2, [0, 1, 2, 3])
@@ -293,7 +294,7 @@ _.some(n => n > 2, [0, 1, 2])
 ```
 
 ### sort :: (a -> Int) -> [a] -> [a]
-returns a lexigraphically sorted copy of the given list.
+Returns a lexigraphically sorted copy of the given list.
 
 ```js
 _.sort(['z', 'a', 'h', 'd'])
@@ -301,7 +302,7 @@ _.sort(['z', 'a', 'h', 'd'])
 ```
 
 ### sortBy :: (a -> Int) -> [a] -> [a]
-returns a sorted copy of the given list based on the sorting function.
+Returns a sorted copy of the given list based on the sorting function.
 
 ```js
 _.sortBy((a, b) => a - b, [2, 3, 1, 4])
@@ -309,7 +310,7 @@ _.sortBy((a, b) => a - b, [2, 3, 1, 4])
 ```
 
 ### split :: String | RegExp -> String -> [String]
-returns a list of strings based on the given separator
+Returns a list of strings based on the given separator.
 
 ```js
 _.split(/\d/, "I have 3 apples and 2 oranges")
@@ -317,7 +318,7 @@ _.split(/\d/, "I have 3 apples and 2 oranges")
 ```
 
 ### sum :: [Number] -> Number
-returns the sum of all numbers in the list
+Returns the sum of all numbers in the list.
 
 ```js
 _.sum([1, 2, 3])
@@ -325,14 +326,14 @@ _.sum([1, 2, 3])
 ```
 
 ### tail :: [a] -> [a]
-returns a copy of the list without the first element
+Returns a copy of the list without the first element.
 ```js
 _.tail([1, 2, 3])
 //=> [2, 3]
 ```
 
 ### take :: Int -> [a] -> [a]
-returns the first n elements of a list
+Returns the first n elements of a list.
 
 ```js
 _.take(2, [1, 2, 3, 4])
@@ -340,7 +341,7 @@ _.take(2, [1, 2, 3, 4])
 ```
 
 ### takeLast :: Int -> [a] -> [a]
-returns the last n elements of a list
+Returns the last n elements of a list.
 
 ```js
 _.takeLast(2, [1, 2, 3, 4])
@@ -348,7 +349,7 @@ _.takeLast(2, [1, 2, 3, 4])
 ```
 
 ### test :: RegExp -> String -> Boolean
-returns if the RegExp matches the string
+Returns if the RegExp matches the string.
 
 ```js
 _.test(/\d/, 'I have 3 Apples')
@@ -358,7 +359,7 @@ _.test(/\d/, 'I have three Apples')
 ```
 
 ### toLowerCase :: String -> String
-returns a new string where all letters are lower case
+Returns a new string where all letters are lower case.
 
 ```js
 _.toLowerCase('I have a dream')
@@ -366,7 +367,7 @@ _.toLowerCase('I have a dream')
 ```
 
 ### toUpperCase :: String -> String
-returns a new string where all letters are upper case
+Returns a new string where all letters are upper case.
 
 ```js
 _.toLowerCase('I have a dream')
@@ -374,7 +375,7 @@ _.toLowerCase('I have a dream')
 ```
 
 ### trim :: String -> String
-returns a new string where all leading and trailing spaces has been removed
+Returns a new string where all leading and trailing spaces has been removed.
 
 ```js
 _.trim(' I have a dream   ')
@@ -382,7 +383,7 @@ _.trim(' I have a dream   ')
 ```
 
 ### values :: Object -> [a]
-returns a list of all values in the given Object
+Returns a list of all values in the given Object.
 
 ```js
 _.values({x: 1, y: 2, x: 3})
