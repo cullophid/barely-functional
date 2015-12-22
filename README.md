@@ -292,11 +292,19 @@ _.some(n => n > 2, [0, 1, 2])
 // => false
 ```
 
-### sort :: [a] -> [a]
+### sort :: (a -> Int) -> [a] -> [a]
+returns a lexigraphically sorted copy of the given list.
+
+```js
+_.sort(['z', 'a', 'h', 'd'])
+// => ['a', 'd', 'h', 'z']
+```
+
+### sortBy :: (a -> Int) -> [a] -> [a]
 returns a sorted copy of the given list based on the sorting function.
 
 ```js
-_.sort((a, b) => a - b, [2, 3, 1, 4])
+_.sortBy((a, b) => a - b, [2, 3, 1, 4])
 // => [1, 2, 3, 4]
 ```
 
