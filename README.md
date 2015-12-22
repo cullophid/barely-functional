@@ -1,17 +1,16 @@
 # Barely Functional
-*A Tiny functional programming library *
+*A Tiny functional programming library*
 
 barely-functional is a tiny (2.1Kb without minification) library for doing functional programming. It includes `curry`
 and `compose`, and wraps several native es5 methods including `.map()` `.reduce()` and `.filter()` and several es6
-methods such as `.every()` and `.find()`. The library also contains several non native functions inspired (READ: stolen)
-from [ramdajs](http://ramdajs.com/).
+methods such as `.every()` and `.find()` with an iteratee first, autocurried API. The library also contains several non native functions inspired by (READ: stolen from) [ramdajs](http://ramdajs.com/).
 
 
-## installing
+## Installing
 
 `npm i barely-functional`
 
-## using
+## Using
 ```js
 const _ = require('barely-functional')
 
@@ -198,7 +197,7 @@ _.match(/a./, 'falaffel')
 ```
 
 ### nth :: Int -> [a] -> a
-return s the nth element of a list.
+Returns the nth element of a list.
 ```js
 _.nth(3, [1, 2, 3, 4, 5])
 // => 4
@@ -222,7 +221,7 @@ _.props(['a', 'b', 'c'], {a:1 b: 2, c: 3})
 
 ### range :: Int -> Int -> [Int]
 Returns a list of all integers between the two specified numbers.
-the last number is not included.
+The last number is not included.
 
 ```js
 _.range(3, 7)
@@ -231,7 +230,7 @@ _.range(3, 7)
 
 ### reduce :: (a -> b -> a) -> a -> [b] -> a
 Returns a single item by iterating through the list, successively calling the iterator function and passing it an accumulator value and the current value from the array, and then passing the result to the next call.
-The iterator function receives two values: (acc, value). It may use R.reduced to shortcut the iteration.
+The iterator function receives two values: (acc, value).
 
 ```js
 _.reduce((a, b) => a + b, 10, [1, 2, 3])
@@ -252,7 +251,7 @@ _.reduceRight((a, b) => a + b, 10, [1, 2, 3])
 
 
 ### replace :: RegExp | String -> String -> String
-returns a new string by replacing each substring or regex match with a replacement.
+Returns a new string by replacing each substring or regex match with a replacement.
 When given a string as the first argument, only the first occurance of the substring will be replaced.
 
 ```js
