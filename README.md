@@ -32,16 +32,6 @@ _.append(5, [1, 2, 3, 4]);
 // => [1, 2, 3, 4, 5]
 ```
 
-### assign :: [Object] -> Object
-Merges a list of objects into a new object; duplicate keys are resolved as last in wins.
-```js
-_.assign([{a: 1}, {b: 2}, {c: 3}]);
-// => {a: 1, b: 2, c: 3}
-
-_.assign([{a: 1}, {b: 2}, {b: 3}]);
-// => {a: 1, b: 3}
-```
-
 ### compose :: ((y -> z), (x -> y) ... (o -> p)(a, b, ..., n -> o)) -> (a, b, ..., n -> z)
 Performs right-to-left function composition. The rightmost function may have any arity; the remaining functions must be unary.
 
@@ -202,8 +192,32 @@ _.map(n => n + 1, [1, 2, 3])
 Tests a regular expression agains a string and returns a list of matches.
 
 ```js
-_.match(/a./, 'falaffel')
+_.match(/a./, 'falafel')
 // => ['al', 'af']
+```
+
+### merge :: Object -> Object -> Object
+Merges two objects into a new object; duplicate keys are resolved as last in wins. As per
+`Object.assign` nested arrays and objects are copied by reference.
+
+```js
+_.merge({a: 1}, {b: 2});
+// => {a: 1, b: 2}
+
+_.merge({a: 1, b: 1}, {b: 2});
+// => {a: 1, b: 2}
+```
+
+### mergeAll :: [Object] -> Object
+Merges a list of objects into a new object; duplicate keys are resolved as last in wins. As per
+`Object.assign` nested arrays and objects are copied by reference.
+
+```js
+_.mergeAll([{a: 1}, {b: 2}, {c: 3}]);
+// => {a: 1, b: 2, c: 3}
+
+_.mergeAll([{a: 1}, {b: 2}, {b: 3}]);
+// => {a: 1, b: 3}
 ```
 
 ### nth :: Int -> [a] -> a
