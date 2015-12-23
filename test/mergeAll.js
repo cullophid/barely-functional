@@ -1,7 +1,7 @@
 const assert = require('assert')
 const bf = require('../index.js')
 
-describe('assign', () => {
+describe('mergeAll', () => {
 
     it('should merge a list of objects', () => {
         const list = [{a: 1}, {b: 2}, {c: 3}]

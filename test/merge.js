@@ -1,7 +1,7 @@
 const assert = require('assert')
 const bf = require('../index.js')
 
-describe('assign', () => {
+describe('merge', () => {
 
     it('should merge two objects', () => {
         const obj = {a: 1}
