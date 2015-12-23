@@ -32,6 +32,16 @@ _.append(5, [1, 2, 3, 4]);
 // => [1, 2, 3, 4, 5]
 ```
 
+### assign :: [Object] -> Object
+Merges a list of objects into a new object; duplicate keys are resolved as last in wins.
+```js
+_.assign([{a: 1}, {b: 2}, {c: 3}]);
+// => {a: 1, b: 2, c: 3}
+
+_.assign([{a: 1}, {b: 2}, {b: 3}]);
+// => {a: 1, b: 3}
+```
+
 ### compose :: ((y -> z), (x -> y) ... (o -> p)(a, b, ..., n -> o)) -> (a, b, ..., n -> z)
 Performs right-to-left function composition. The rightmost function may have any arity; the remaining functions must be unary.
 
@@ -209,6 +219,14 @@ Returns the specified property of the given object.
 
 _.prop('msg', {msg: 'hello wold'})
 // => 'hello world'
+```
+
+### pluck :: String -> [Object] -> [a | void 0]
+Returns the values associated with the provided key from each object in list of objects.
+
+```js
+_.pluck('a', [{a:1}, {a: 2}, {a: 3}])
+// => [1, 2, 3]
 ```
 
 ### props :: [String] -> Object -> [a | void 0]

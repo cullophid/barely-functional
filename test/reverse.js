@@ -1,7 +1,7 @@
 const assert = require('assert')
 const bf = require('../index.js')
 
-describe('compose', () => {
+describe('reverse', () => {
 
     it('should reverse list', () => {
         const list = [1, 2, 3, 4, 5]
