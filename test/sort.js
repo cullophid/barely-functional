@@ -13,5 +13,3 @@ describe('sort', () => {
         assert.notEqual(bf.sort(list), list)
     })
 })
-
-console.log(bf.indexOf(2, [1,2,3,4]))

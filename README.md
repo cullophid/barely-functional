@@ -192,8 +192,32 @@ _.map(n => n + 1, [1, 2, 3])
 Tests a regular expression agains a string and returns a list of matches.
 
 ```js
-_.match(/a./, 'falaffel')
+_.match(/a./, 'falafel')
 // => ['al', 'af']
+```
+
+### merge :: Object -> Object -> Object
+Merges two objects into a new object; duplicate keys are resolved as last in wins. As per
+`Object.assign` nested arrays and objects are copied by reference.
+
+```js
+_.merge({a: 1}, {b: 2});
+// => {a: 1, b: 2}
+
+_.merge({a: 1, b: 1}, {b: 2});
+// => {a: 1, b: 2}
+```
+
+### mergeAll :: [Object] -> Object
+Merges a list of objects into a new object; duplicate keys are resolved as last in wins. As per
+`Object.assign` nested arrays and objects are copied by reference.
+
+```js
+_.mergeAll([{a: 1}, {b: 2}, {c: 3}]);
+// => {a: 1, b: 2, c: 3}
+
+_.mergeAll([{a: 1}, {b: 2}, {b: 3}]);
+// => {a: 1, b: 3}
 ```
 
 ### nth :: Int -> [a] -> a
@@ -209,6 +233,14 @@ Returns the specified property of the given object.
 
 _.prop('msg', {msg: 'hello wold'})
 // => 'hello world'
+```
+
+### pluck :: String -> [Object] -> [a | void 0]
+Returns the values associated with the provided key from each object in list of objects.
+
+```js
+_.pluck('a', [{a:1}, {a: 2}, {a: 3}])
+// => [1, 2, 3]
 ```
 
 ### props :: [String] -> Object -> [a | void 0]
