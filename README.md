@@ -69,7 +69,7 @@ sum3(1, 2, 3)
 ```
 
 
-### drop :: Number -> [a] -> [a]
+### drop :: Int -> [a] -> [a]
 Returns a new list without the first n elements
 
 ```js
@@ -139,7 +139,6 @@ Returns the index of the specified element in the list. Returns -1 if the elemen
 _.indexOf(1, [0, 1, 2, 3])
 // => 1
 ```
-
 
 ### init :: [a] -> [a]
 Returns all elements of the list except the last.
