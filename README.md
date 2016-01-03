@@ -1,9 +1,9 @@
 # Barely Functional
 *A Tiny functional programming library*
 
-barely-functional is a tiny (2.1Kb without minification) library for doing functional programming. It includes `curry`
+barely-functional is a tiny (2.2Kb without minification) library for doing functional programming. It includes `curry`
 and `compose`, and wraps several native es5 methods including `.map()` `.reduce()` and `.filter()` and several es6
-methods such as `.every()` and `.find()` with an iteratee first, autocurried API. The library also contains several non native functions inspired by (READ: stolen from) [ramdajs](http://ramdajs.com/).
+methods such as `.every()` and `.find()` with an iteratee first, autocurried API. The library also contains several non-native functions inspired by (READ: stolen from) [ramdajs](http://ramdajs.com/).
 
 
 ## Installing
@@ -21,7 +21,7 @@ const sumOfEven = _.compose(_.sum, _.filter((e) => e % 2 === 0))
 
 
 ## But ramda is way better...
-Yes it is, but it is also a lot bigger. If you a writing a small module, you might not want to include all of [Ramda](https://http://ramdajs.com).
+Yes, it is, but it is also a lot bigger. If you a writing a small module, you might not want to include all of [Ramda](http://ramdajs.com).
 
 ## API
 
@@ -54,7 +54,7 @@ _.concat([1, 2, 3], [4, 5, 6]);
 ```
 
 ### curry :: (\* -> a) -> (\s* -> a)
-Returns a curried equivalent of the provided function. The curried function has two unusual capabilities. First, its arguments needn't be provided one at a time. If f is a ternary function and g is _.curry(f), the following are equivalent:
+Returns a curried equivalent of the provided function. The curried function has two unusual capabilities. First, its arguments needn't be provided one at a time. If `f` is a ternary function and `g` is `_.curry(f)`, the following are equivalent:
 
 ```js
 const sum3 = _.curry((a, b, c) => a + b + c)
@@ -68,9 +68,8 @@ sum3(1, 2, 3)
 // => 6
 ```
 
-
 ### drop :: Int -> [a] -> [a]
-Returns a new list without the first n elements
+Returns a new list without the first `n` elements
 
 ```js
 _.drop(2, [1, 2, 3, 4])
@@ -84,12 +83,12 @@ Returns true if every element in the list satisfies the predicate function.
 _.every(n => n > 2, [2, 3, 4])
 // => false
 
-every(n => n > 2, [3, 4, 5])
+_.every(n => n > 2, [3, 4, 5])
 // => true
 ```
 
 ### filter :: (a -> Boolean) -> [a] -> [a]
-Returns a new list containing only the elements in the list that satisfies the predicated function.
+Returns a new list containing only the elements in the list that satisfy the predicate function.
 
 ```js
 _.filter(n => n > 2, [1, 2, 3, 4])
@@ -97,21 +96,21 @@ _.filter(n => n > 2, [1, 2, 3, 4])
 ```
 
 ### find :: (a -> Boolean) -> [a] -> a | void 0
-Returns the first element satisfying the predicate function. If no element can be found it returns undefined.
+Returns the first element satisfying the predicate function. If no element can be found it returns `undefined`.
 ```js
 _.find(n => n === 2, [1, 2, 3,4])
 // => 2
 ```
 
 ### findIndex :: (a -> Boolean) -> [a] -> Int
-Returns the index of first element satisfying the predicate function. If no element can be found it returns -1.
+Returns the index of first element satisfying the predicate function. If no element can be found it returns `-1`.
 ```js
 _.findIndex(n => n === 2, [1, 2, 3,4])
 // => 1
 ```
 
 ### has :: String -> Object -> Boolean
-Returns true if the given object has a property with the specified name.
+Returns `true` if the given object has a property with the specified name; `false` otherwise.
 ```js
 _.has('a', {a:2})
 // => true
@@ -127,7 +126,7 @@ _.head([1, 2, 3])
 ```
 
 ### includes :: a -> [a] -> Boolean
-Returns true if the list includes the given element.
+Returns `true` if the list includes the given element; `false` otherwise.
 ```js
 _.includes('a', ['a', 'b', 'c'])
 // => true
@@ -156,7 +155,7 @@ _.join('|', ['a', 'b', 'c'])
 ```
 
 ### keys :: Object -> [String]
-Returns a list of the given objects keys.
+Returns a list of the given object's keys.
 
 ```js
 _.keys({a: 1, b: 2, c: 3})
@@ -171,7 +170,7 @@ _.last([1, 2, 3])
 // => 3
 ```
 
-### length :: [a] -> Int
+### length :: [a] | String | Function -> Int
 Returns the length of a list / function / string.
 
 ```js
@@ -188,7 +187,7 @@ _.map(n => n + 1, [1, 2, 3])
 ```
 
 ### match :: RegExp -> String -> [String | void 0]
-Tests a regular expression agains a string and returns a list of matches.
+Tests a regular expression against a string and returns a list of matches.
 
 ```js
 _.match(/a./, 'falafel')
@@ -197,7 +196,7 @@ _.match(/a./, 'falafel')
 
 ### merge :: Object -> Object -> Object
 Merges two objects into a new object; duplicate keys are resolved as last in wins. As per
-`Object.assign` nested arrays and objects are copied by reference.
+`Object.assign`, nested arrays and objects are copied by reference.
 
 ```js
 _.merge({a: 1}, {b: 2});
@@ -209,7 +208,7 @@ _.merge({a: 1, b: 1}, {b: 2});
 
 ### mergeAll :: [Object] -> Object
 Merges a list of objects into a new object; duplicate keys are resolved as last in wins. As per
-`Object.assign` nested arrays and objects are copied by reference.
+`Object.assign`, nested arrays and objects are copied by reference.
 
 ```js
 _.mergeAll([{a: 1}, {b: 2}, {c: 3}]);
@@ -220,18 +219,10 @@ _.mergeAll([{a: 1}, {b: 2}, {b: 3}]);
 ```
 
 ### nth :: Int -> [a] -> a
-Returns the nth element of a list.
+Returns the `nth` element of a list.
 ```js
 _.nth(3, [1, 2, 3, 4, 5])
 // => 4
-```
-### prop :: String -> Object -> a
-Returns the specified property of the given object.
-
-```js
-
-_.prop('msg', {msg: 'hello wold'})
-// => 'hello world'
 ```
 
 ### pluck :: String -> [Object] -> [a | void 0]
@@ -242,6 +233,15 @@ _.pluck('a', [{a:1}, {a: 2}, {a: 3}])
 // => [1, 2, 3]
 ```
 
+### prop :: String -> Object -> a
+Returns the value of the specified property from the given object.
+
+```js
+
+_.prop('msg', {msg: 'hello wold'})
+// => 'hello world'
+
+```
 ### props :: [String] -> Object -> [a | void 0]
 Returns a list of values related to the specified properties.
 
@@ -298,7 +298,7 @@ _.reverse([1, 2, 3])
 ```
 
 ### slice :: Int -> Int -> [a] -> [a]
-Returns a new list containing only the elements from the first index(inclusive) to the last index(exclusive)
+Returns a new list containing only the elements from the first index (inclusive) to the last index (exclusive).
 
 ```js
 _.slice(1, 4, [1, 2, 3, 4, 5])
@@ -307,7 +307,7 @@ _.slice(1, 4, [1, 2, 3, 4, 5])
 
 
 ### some :: (a -> Boolean) -> [a] -> Boolean
-Returns true if any of the elements in the list satisfies the predicate function.
+Returns `true` if any of the elements in the list satisfy the predicate function.
 
 ```js
 _.some(n => n > 2, [0, 1, 2, 3])
@@ -316,7 +316,7 @@ _.some(n => n > 2, [0, 1, 2])
 // => false
 ```
 
-### sort :: (a -> Int) -> [a] -> [a]
+### sort :: [a] -> [a]
 Returns a lexigraphically sorted copy of the given list.
 
 ```js
@@ -356,7 +356,7 @@ _.tail([1, 2, 3])
 ```
 
 ### take :: Int -> [a] -> [a]
-Returns the first n elements of a list.
+Returns the first `n` elements of a list.
 
 ```js
 _.take(2, [1, 2, 3, 4])
@@ -364,7 +364,7 @@ _.take(2, [1, 2, 3, 4])
 ```
 
 ### test :: RegExp -> String -> Boolean
-Returns if the RegExp matches the string.
+Returns `true` if the RegExp matches the string; `false` otherwise.
 
 ```js
 _.test(/\d/, 'I have 3 Apples')
@@ -390,7 +390,7 @@ _.toLowerCase('I have a dream')
 ```
 
 ### trim :: String -> String
-Returns a new string where all leading and trailing spaces has been removed.
+Returns a new string where all leading and trailing spaces have been removed.
 
 ```js
 _.trim(' I have a dream   ')
@@ -398,14 +398,14 @@ _.trim(' I have a dream   ')
 ```
 
 ### values :: Object -> [a]
-Returns a list of all values in the given Object.
+Returns a list of all values in the given object.
 
 ```js
 _.values({x: 1, y: 2, x: 3})
 // => [1, 2, 3]
 ```
 
-## 2.1Kb is too big!
+## 2.2Kb is too big!
 basic.js is just 1.1KB. It contains all the native es5/es6 functions as well as curry and compose.
 
 ```js
