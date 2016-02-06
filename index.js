@@ -4,12 +4,12 @@ const arg0 = ['toLowerCase', 'toUpperCase', 'trim']
 const arg1 = ['concat', 'every', 'filter', 'find', 'findIndex', 'indexOf', 'join', 'map', 'some', 'match', 'split']
 const arg2 = ['reduce', 'reduceRight', 'replace', 'reduceRight', 'slice']
 
-const slice = Array.prototype.slice
+const compose = require('./compose')
 
 const curry = ex.curry = (f) => function () {
   let args = []
   const curried = function () {
-    args = args.concat(slice.call(arguments))
+    args = args.concat(Array.prototype.slice.call(arguments))
     return (args.length >= f.length) ? f.apply(null, args) : curried
   }
   return curried.apply(null, arguments)
@@ -48,13 +48,6 @@ ex.keys = o => Object.keys(o)
 ex.values = o => Object.keys(o).map((k) => o[k])
 ex.prop = curry((prop, o) => o[prop])
 ex.props = curry((props, o) => props.map(p => o[p]))
-ex.compose = function () {
-  const fs = slice.call(arguments).reverse()
-  return function () {
-    const args = slice.call(arguments)
-    return ex
-      .tail(fs)
-      .reduce((arg, f) => f(arg), ex.head(fs).apply(null, args))
-  }
-}
+ex.compose = compose
+
 module.exports = ex
