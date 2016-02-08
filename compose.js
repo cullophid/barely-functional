@@ -1,3 +1,4 @@
+'use strict'
 const slice = Array.prototype.slice;
 
 module.exports = function () {
