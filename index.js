@@ -6,6 +6,9 @@ const arg2 = ['reduce', 'reduceRight', 'replace', 'reduceRight', 'slice']
 
 const compose = require('./compose')
 const curry = require('./curry')
+const append = require('./append')
+const drop = require('./drop')
+const head = require('./head')
 
 const f2 = curry((name, arg, coll) => {
   return coll[name](arg)
@@ -17,9 +20,9 @@ arg1.forEach(name => ex[name] = f2(name))
 arg2.forEach(name => ex[name] = f3(name))
 
 // custom
-ex.append = curry((e, list) => list.concat([e]))
-ex.drop = curry((i, list) => list.slice(i))
-ex.head = list => list[0]
+ex.append = append
+ex.drop = drop
+ex.head = head
 ex.includes = curry((e, list) => list.indexOf(e) !== -1)
 ex.init = list => list.slice(0, list.length - 1)
 ex.last = list => list[list.length -1]

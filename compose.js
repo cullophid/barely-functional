@@ -3,7 +3,6 @@ const slice = Array.prototype.slice;
 
 module.exports = function () {
   const fs = slice.call(arguments).reverse()
-  console.log(fs[0]);
   return function () {
     const args = slice.call(arguments)
     return fs.slice(1)
