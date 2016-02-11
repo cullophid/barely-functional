@@ -9,6 +9,10 @@ const curry = require('./curry')
 const append = require('./append')
 const drop = require('./drop')
 const head = require('./head')
+const includes = require('./includes')
+const init = require('./init')
+const last = require('./last')
+const length = require('./length')
 
 const f2 = curry((name, arg, coll) => {
   return coll[name](arg)
@@ -23,10 +27,10 @@ arg2.forEach(name => ex[name] = f3(name))
 ex.append = append
 ex.drop = drop
 ex.head = head
-ex.includes = curry((e, list) => list.indexOf(e) !== -1)
-ex.init = list => list.slice(0, list.length - 1)
-ex.last = list => list[list.length -1]
-ex.length = list => list.length
+ex.includes = includes
+ex.init = init
+ex.last = last
+ex.length = length
 ex.nth = curry((i, list) => list[i])
 ex.pluck = curry((key, list) => list.map(o => o[key]))
 ex.range = curry((start, end) => Array(end - start).fill(1).map((e, i) => i + start))
