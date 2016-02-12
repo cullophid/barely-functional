@@ -1,0 +1,1 @@
+module.exports = xs => [].concat(xs).reverse()

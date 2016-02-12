@@ -13,6 +13,10 @@ const includes = require('./includes')
 const init = require('./init')
 const last = require('./last')
 const length = require('./length')
+const nth = require('./nth')
+const pluck = require('./pluck')
+const range = require('./range')
+const reverse = require('./reverse')
 
 const f2 = curry((name, arg, coll) => {
   return coll[name](arg)
@@ -31,10 +35,10 @@ ex.includes = includes
 ex.init = init
 ex.last = last
 ex.length = length
-ex.nth = curry((i, list) => list[i])
-ex.pluck = curry((key, list) => list.map(o => o[key]))
-ex.range = curry((start, end) => Array(end - start).fill(1).map((e, i) => i + start))
-ex.reverse = list => [].concat(list).reverse()
+ex.nth = nth
+ex.pluck = pluck
+ex.range = range
+ex.reverse = reverse
 ex.sort = list => [].concat(list).sort()
 ex.sortBy = curry((f, list) => [].concat(list).sort(f))
 ex.sum = list => list.reduce((sum, e) => sum + e, 0)

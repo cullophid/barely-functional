@@ -1,15 +1,21 @@
 const assert = require('assert')
+const reverse = require('../reverse.js')
 const bf = require('../index.js')
 
 describe('reverse', () => {
 
-    it('should reverse list', () => {
+    it('should not mutate the list', () => {
         const list = [1, 2, 3, 4, 5]
-        assert.deepEqual(bf.reverse(list), [5, 4, 3, 2, 1])
+        assert.notEqual(reverse(list), list)
     })
 
-    it('should not mutate argument', () => {
+    it('should reverse the list', () => {
         const list = [1, 2, 3, 4, 5]
-        assert.notEqual(bf.reverse(list), list)
+        assert.deepEqual(reverse(list), [5, 4, 3, 2, 1])
+    })
+
+    it('should be exported from index', () => {
+        const list = [1, 2, 3, 4, 5]
+        assert.deepEqual(bf.reverse(list), [5, 4, 3, 2, 1])
     })
 })
