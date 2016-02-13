@@ -1,5 +1,6 @@
 const assert = require('assert')
 const append = require('../append.js')
+const bf = require('../index.js')
 
 describe('append', () => {
 
@@ -15,6 +16,10 @@ describe('append', () => {
 
   it('should append the item to a list', () => {
     assert.deepEqual(append(5, [1, 2, 3, 4]), [1, 2, 3, 4 ,5])
+  })
+
+  it('is exported from index', () => {
+    assert.deepEqual(bf.append(5, [1, 2, 3, 4]), [1, 2, 3, 4 ,5])
   })
 
 })
