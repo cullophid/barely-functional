@@ -17,6 +17,9 @@ const nth = require('./nth')
 const pluck = require('./pluck')
 const range = require('./range')
 const reverse = require('./reverse')
+const sort = require('./sort')
+const sortBy = require('./sortBy')
+const sum = require('./sum')
 
 const f2 = curry((name, arg, coll) => {
   return coll[name](arg)
@@ -39,9 +42,9 @@ ex.nth = nth
 ex.pluck = pluck
 ex.range = range
 ex.reverse = reverse
-ex.sort = list => [].concat(list).sort()
-ex.sortBy = curry((f, list) => [].concat(list).sort(f))
-ex.sum = list => list.reduce((sum, e) => sum + e, 0)
+ex.sort = sort
+ex.sortBy = sortBy
+ex.sum = sum
 ex.tail = list => list.slice(1)
 ex.take = curry((i, list) => list.slice(0, i))
 ex.test = curry((regex, string) => string.search(regex) !== -1)
