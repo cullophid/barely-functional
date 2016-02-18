@@ -25,6 +25,9 @@ const take = require('./take')
 const test = require('./test')
 const merge = require('./merge')
 const mergeAll = require('./mergeAll')
+const has = require('./has')
+const keys = require('./keys')
+const values = require('./values')
 
 const f2 = curry((name, arg, coll) => {
   return coll[name](arg)
@@ -55,9 +58,9 @@ ex.take = take
 ex.test = test
 ex.merge = merge
 ex.mergeAll = mergeAll
-ex.has = curry((prop, o) => Object.prototype.hasOwnProperty.call(o, prop))
-ex.keys = o => Object.keys(o)
-ex.values = o => Object.keys(o).map((k) => o[k])
+ex.has = has
+ex.keys = keys
+ex.values = values
 ex.prop = curry((prop, o) => o[prop])
 ex.props = curry((props, o) => props.map(p => o[p]))
 ex.compose = compose
