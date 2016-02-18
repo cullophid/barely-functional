@@ -1,0 +1,1 @@
+module.exports = xs => Object.assign.apply(null, [{}].concat(xs))
