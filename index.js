@@ -23,6 +23,8 @@ const sum = require('./sum')
 const tail = require('./tail')
 const take = require('./take')
 const test = require('./test')
+const merge = require('./merge')
+const mergeAll = require('./mergeAll')
 
 const f2 = curry((name, arg, coll) => {
   return coll[name](arg)
@@ -51,8 +53,8 @@ ex.sum = sum
 ex.tail = tail
 ex.take = take
 ex.test = test
-ex.merge = curry((o, o1) => ex.mergeAll([o, o1]))
-ex.mergeAll = list => Object.assign.apply(null, [{}].concat(list))
+ex.merge = merge
+ex.mergeAll = mergeAll
 ex.has = curry((prop, o) => Object.prototype.hasOwnProperty.call(o, prop))
 ex.keys = o => Object.keys(o)
 ex.values = o => Object.keys(o).map((k) => o[k])
