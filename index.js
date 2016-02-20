@@ -28,6 +28,8 @@ const mergeAll = require('./mergeAll')
 const has = require('./has')
 const keys = require('./keys')
 const values = require('./values')
+const prop = require('./prop')
+const props = require('./props')
 
 const f2 = curry((name, arg, coll) => {
   return coll[name](arg)
@@ -61,8 +63,8 @@ ex.mergeAll = mergeAll
 ex.has = has
 ex.keys = keys
 ex.values = values
-ex.prop = curry((prop, o) => o[prop])
-ex.props = curry((props, o) => props.map(p => o[p]))
+ex.prop = prop
+ex.props = props
 ex.compose = compose
 ex.curry = curry
 
