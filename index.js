@@ -1,6 +1,5 @@
 'use strict'
 const ex = {}
-const arg0 = ['toLowerCase', 'toUpperCase', 'trim']
 const arg1 = ['concat', 'every', 'filter', 'find', 'findIndex', 'indexOf', 'join', 'map', 'some', 'match', 'split']
 const arg2 = ['reduce', 'reduceRight', 'replace', 'reduceRight', 'slice']
 
@@ -30,13 +29,15 @@ const keys = require('./keys')
 const values = require('./values')
 const prop = require('./prop')
 const props = require('./props')
+const toLowerCase = require('./toLowerCase')
+const toUpperCase = require('./toUpperCase')
+const trim = require('./trim')
 
 const f2 = curry((name, arg, coll) => {
   return coll[name](arg)
 })
 const f3 = curry((name, arg1, arg2, coll) => coll[name](arg1, arg2))
 
-arg0.forEach(name => ex[name] = f2(name, undefined))
 arg1.forEach(name => ex[name] = f2(name))
 arg2.forEach(name => ex[name] = f3(name))
 
@@ -67,5 +68,8 @@ ex.prop = prop
 ex.props = props
 ex.compose = compose
 ex.curry = curry
+ex.toLowerCase = toLowerCase
+ex.toUpperCase = toUpperCase
+ex.trim = trim
 
 module.exports = ex
