@@ -190,7 +190,7 @@ _.map(n => n + 1, [1, 2, 3])
 Tests a regular expression against a string and returns a list of matches.
 
 ```js
-_.match(/a./, 'falafel')
+_.match(/a./g, 'falafel')
 // => ['al', 'af']
 ```
 
@@ -337,7 +337,7 @@ Returns a list of strings based on the given separator.
 
 ```js
 _.split(/\d/, "I have 3 apples and 2 oranges")
-//=> ["I have", "apples and ", "oranges"]
+//=> ["I have ", " apples and ", " oranges"]
 ```
 
 ### sum :: [Number] -> Number

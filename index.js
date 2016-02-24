@@ -1,7 +1,6 @@
 'use strict'
 const ex = {}
-const arg1 = ['join', 'match', 'split']
-const arg2 = ['reduce', 'reduceRight', 'replace', 'reduceRight', 'slice']
+const arg2 = ['reduce', 'reduceRight', 'reduceRight', 'slice']
 
 const compose = require('./compose')
 const curry = require('./curry')
@@ -40,13 +39,13 @@ const findIndex = require('./findIndex')
 const indexOf = require('./indexOf')
 const some = require('./some')
 const map = require('./map')
+const join = require('./join')
+const match = require('./match')
+const split = require('./split')
+const replace = require('./replace')
 
-const f2 = curry((name, arg, coll) => {
-  return coll[name](arg)
-})
 const f3 = curry((name, arg1, arg2, coll) => coll[name](arg1, arg2))
 
-arg1.forEach(name => ex[name] = f2(name))
 arg2.forEach(name => ex[name] = f3(name))
 
 // custom
@@ -87,5 +86,9 @@ ex.findIndex = findIndex
 ex.indexOf = indexOf
 ex.some = some
 ex.map = map
+ex.join = join
+ex.match = match
+ex.split = split
+ex.replace = replace
 
 module.exports = ex
