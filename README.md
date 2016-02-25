@@ -276,8 +276,8 @@ Similar to reduce, except moves through the input list from the right to the lef
 The iterator function receives two values: (acc, value)
 
 ```js
-_.reduceRight((a, b) => a + b, 10, [1, 2, 3])
-// => 16
+_.reduceRight((acc, value) => acc.concat(value), [], [1, 2, 3, 4, 5])
+// => [5, 4, 3, 2, 1]
 ```
 
 
