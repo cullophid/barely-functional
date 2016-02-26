@@ -1,6 +1,5 @@
 'use strict'
 const ex = {}
-const arg2 = ['reduce', 'reduceRight', 'reduceRight', 'slice']
 
 const compose = require('./compose')
 const curry = require('./curry')
@@ -43,12 +42,10 @@ const join = require('./join')
 const match = require('./match')
 const split = require('./split')
 const replace = require('./replace')
+const reduce = require('./reduce')
+const reduceRight = require('./reduceRight')
+const slice = require('./slice')
 
-const f3 = curry((name, arg1, arg2, coll) => coll[name](arg1, arg2))
-
-arg2.forEach(name => ex[name] = f3(name))
-
-// custom
 ex.append = append
 ex.drop = drop
 ex.head = head
@@ -90,5 +87,8 @@ ex.join = join
 ex.match = match
 ex.split = split
 ex.replace = replace
+ex.reduce = reduce
+ex.reduceRight = reduceRight
+ex.slice = slice
 
 module.exports = ex
