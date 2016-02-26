@@ -1,9 +1,16 @@
 # Barely Functional
-*A Tiny functional programming library*
+*A tiny functional programming library*
 
-barely-functional is a tiny (2.2Kb without minification) library for doing functional programming. It includes `curry`
-and `compose`, and wraps several native es5 methods including `.map()` `.reduce()` and `.filter()` and several es6
-methods such as `.every()` and `.find()` with an iteratee first, autocurried API. The library also contains several non-native functions inspired by (READ: stolen from) [ramdajs](http://ramdajs.com/).
+**barely-functional** is a small, highly modular library for doing functional programming. It includes `curry`
+and `compose`, and wraps several native ES5 methods including `.map()` `.reduce()` and `.filter()` and several ES6
+methods such as `.every()` and `.find()` with an iteratee first, autocurried API. Several 
+non-native functions inspired by (READ: stolen from) [ramdajs](http://ramdajs.com/) are also included. 
+
+All functions may be imported individually, thus reducing the footprint of the library even further:
+
+```js
+const map = require('barely-functional/map')
+```
 
 
 ## Installing

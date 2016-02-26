@@ -1,5 +1,6 @@
 const assert = require('assert')
 const drop = require('../drop.js')
+const bf = require('../index.js')
 
 describe('drop', () => {
 
@@ -15,6 +16,10 @@ describe('drop', () => {
 
   it('should drop the first two items from a list', () => {
     assert.deepEqual(drop(2, [1, 2, 3, 4, 5]), [3, 4 ,5])
+  })
+
+  it('is exported from index', () => {
+    assert.deepEqual(bf.drop(2, [1, 2, 3, 4, 5]), [3, 4 ,5])
   })
 
 })

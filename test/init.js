@@ -1,5 +1,6 @@
 const assert = require('assert')
 const init = require('../init.js')
+const bf = require('../index.js')
 
 describe('init', () => {
 
@@ -10,6 +11,10 @@ describe('init', () => {
   })
 
   it('should remove the last item of the list', () => {
+    assert.deepEqual(init([1, 2, 3, 4, 5]), [1, 2, 3, 4])
+  })
+
+  it('is exported from index', () => {
     assert.deepEqual(init([1, 2, 3, 4, 5]), [1, 2, 3, 4])
   })
 
