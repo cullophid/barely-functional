@@ -10,7 +10,6 @@ describe('find', () => {
     assert.strictEqual(find(isEven)([1, 2, 3, 4, 5, 6]), 2)
   })
 
-
   it('should find first element that satisfies the predicate', () => {
     assert.strictEqual(find(isEven, [1, 2, 3, 4, 5, 6]), 2)
   })

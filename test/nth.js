@@ -12,4 +12,8 @@ describe('nth', () => {
     assert.strictEqual(nth(2, [1, 2, 3, 4, 5]), 3)
   })
 
+  it('should be exported from index', () => {
+    assert.strictEqual(bf.nth(2, [1, 2, 3, 4, 5]), 3)
+  })
+
 })
