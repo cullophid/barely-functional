@@ -114,7 +114,6 @@ element can be found it returns `Nothing()`.
 ```js
 _.find(n => n % 2 === 0, [1, 2, 3, 4])
 // => Just(2)
-
 _.find(n => n % 2 === 0, [1, 3, 5])
 // => Nothing()
 ```
@@ -125,9 +124,18 @@ If no element can be found it returns `Nothing()`.
 ```js
 _.findIndex(n => n % 2 === 0, [1, 2, 3, 4])
 // => Just(1)
-
 _.findIndex(n => n % 2 === 0, [1, 3, 5])
 // => Nothing()
+```
+
+### fromMaybe :: a -> Maybe a -> a
+Returns a default if second argument is Nothing(); otherwise unwraps the Just.
+
+```js
+_.fromMaybe(5, Just(1))
+// => Just(1)
+_.fromMaybe(5, Nothing())
+// => 5
 ```
 
 ### has :: String -> Object -> Boolean
@@ -159,7 +167,6 @@ Returns `Just` the index of the specified element in the list. Returns
 ```js
 _.indexOf(1, [0, 1, 2, 3])
 // => Just(1)
-
 _.indexOf(5, [0, 1, 2, 3])
 // => Nothing()
 ```
@@ -249,7 +256,6 @@ the length of the list then return `Nothing()`.
 ```js
 _.nth(3, [1, 2, 3, 4, 5])
 // => Just(4)
-
 _.nth(10, [1, 2, 3, 4, 5])
 // => Nothing()
 ```
@@ -408,6 +414,16 @@ Returns a new string where all letters are lower case.
 ```js
 _.toLowerCase('I have a dream')
 // => 'i have a dream'
+```
+
+### toMaybe :: a | null | void 0 -> Maybe a
+Returns a Nothing if the supplied value is null; A Just otherwise.
+
+```js
+_.toMaybe(1)
+// => Just(1)
+_.toMaybe(null)
+// => Nothing
 ```
 
 ### toUpperCase :: String -> String
