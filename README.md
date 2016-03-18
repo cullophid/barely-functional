@@ -4,7 +4,13 @@
 **barely-functional** is a small, highly modular library for doing functional programming. It includes `curry`
 and `compose`, and wraps several native ES5 methods including `.map()` `.reduce()` and `.filter()` and several ES6
 methods such as `.every()` and `.find()` with an iteratee first, autocurried API. Several 
-non-native functions inspired by (READ: stolen from) [ramdajs](http://ramdajs.com/) are also included. 
+non-native functions inspired by (READ: stolen from) [ramdajs](http://ramdajs.com/) are also included.
+
+**barely-functional** also attempts to guard against unsafe operations by 
+returning a [`Maybe`](https://downloads.haskell.org/~ghc/7
+.4-latest/docs/html/libraries/base-4.5.1.0/Data-Maybe.html) for operations 
+that can fail. The `Maybe` type returned is compliant with the [Fantasy Land]
+(https://github.com/fantasyland/fantasy-land) specification. 
 
 All functions may be imported individually, thus reducing the footprint of the library even further:
 
@@ -102,18 +108,26 @@ _.filter(n => n > 2, [1, 2, 3, 4])
 // => [3, 4]
 ```
 
-### find :: (a -> Boolean) -> [a] -> a | void 0
-Returns the first element satisfying the predicate function. If no element can be found it returns `undefined`.
+### find :: (a -> Boolean) -> [a] -> Maybe a
+Returns `Just` the first element satisfying the predicate function. If no 
+element can be found it returns `Nothing()`.
 ```js
-_.find(n => n === 2, [1, 2, 3,4])
-// => 2
+_.find(n => n % 2 === 0, [1, 2, 3, 4])
+// => Just(2)
+
+_.find(n => n % 2 === 0, [1, 3, 5])
+// => Nothing()
 ```
 
-### findIndex :: (a -> Boolean) -> [a] -> Int
-Returns the index of first element satisfying the predicate function. If no element can be found it returns `-1`.
+### findIndex :: (a -> Boolean) -> [a] -> Maybe Int
+Returns `Just` the index of first element satisfying the predicate function. 
+If no element can be found it returns `Nothing()`.
 ```js
-_.findIndex(n => n === 2, [1, 2, 3,4])
-// => 1
+_.findIndex(n => n % 2 === 0, [1, 2, 3, 4])
+// => Just(1)
+
+_.findIndex(n => n % 2 === 0, [1, 3, 5])
+// => Nothing()
 ```
 
 ### has :: String -> Object -> Boolean
@@ -139,11 +153,15 @@ _.includes('a', ['a', 'b', 'c'])
 // => true
 ```
 
-### indexOf :: a -> [a] -> Int
-Returns the index of the specified element in the list. Returns -1 if the element is not in the list.
+### indexOf :: a -> [a] -> Maybe Int
+Returns `Just` the index of the specified element in the list. Returns 
+`Nothing()` if the element is not in the list.
 ```js
 _.indexOf(1, [0, 1, 2, 3])
-// => 1
+// => Just(1)
+
+_.indexOf(5, [0, 1, 2, 3])
+// => Nothing()
 ```
 
 ### init :: [a] -> [a]
@@ -225,11 +243,15 @@ _.mergeAll([{a: 1}, {b: 2}, {b: 3}]);
 // => {a: 1, b: 3}
 ```
 
-### nth :: Int -> [a] -> a
-Returns the `nth` element of a list.
+### nth :: Int -> [a] -> Maybe a
+Returns `Just` the `nth` element of a list. If the index queried is greater than
+the length of the list then return `Nothing()`.
 ```js
 _.nth(3, [1, 2, 3, 4, 5])
-// => 4
+// => Just(4)
+
+_.nth(10, [1, 2, 3, 4, 5])
+// => Nothing()
 ```
 
 ### pluck :: String -> [Object] -> [a | void 0]
