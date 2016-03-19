@@ -41,6 +41,8 @@ const tail = require('./tail')
 const take = require('./take')
 const test = require('./test')
 const toLowerCase = require('./toLowerCase')
+const toMaybe = require('./toMaybe')
+const fromMaybe = require('./fromMaybe')
 const toUpperCase = require('./toUpperCase')
 const trim = require('./trim')
 const values = require('./values')
@@ -55,6 +57,7 @@ module.exports = {
   filter: filter,
   find: find,
   findIndex: findIndex,
+  fromMaybe: fromMaybe,
   has: has,
   head: head,
   includes: includes,
@@ -87,6 +90,7 @@ module.exports = {
   take: take,
   test: test,
   toLowerCase: toLowerCase,
+  toMaybe: toMaybe,
   toUpperCase: toUpperCase,
   trim: trim,
   values: values
