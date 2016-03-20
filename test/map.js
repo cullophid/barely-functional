@@ -19,6 +19,10 @@ describe('map', () => {
     assert.deepEqual(map(inc, [1, 2, 3, 4, 5, 6]), [2, 3, 4, 5, 6, 7])
   })
 
+  it('should only use only one argument when invoking the provided mapping function', () => {
+    assert.deepEqual(map(parseInt, ['1', '2', '3', '4', '5']), [1, 2, 3, 4, 5])
+  })
+
   it('is exported from index', () => {
     assert.deepEqual(bf.map(inc, [1, 2, 3, 4, 5, 6]), [2, 3, 4, 5, 6, 7])
   })
