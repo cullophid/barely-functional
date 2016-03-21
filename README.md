@@ -211,7 +211,8 @@ _.length([1, 2, 3])
 ```
 
 ### map :: (a -> b) -> [a] -> [b]
-Returns a new list, constructed by applying the supplied function to every element of the supplied list.
+Returns a new list, constructed by applying the supplied unary function to every 
+element of the supplied list.
 
 ```js
 _.map(n => n + 1, [1, 2, 3])
