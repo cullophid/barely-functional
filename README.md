@@ -7,8 +7,7 @@ methods such as `.every()` and `.find()` with an iteratee first, autocurried API
 non-native functions inspired by (READ: stolen from) [ramdajs](http://ramdajs.com/) are also included.
 
 **barely-functional** also attempts to guard against unsafe operations by 
-returning a [`Maybe`](https://downloads.haskell.org/~ghc/7
-.4-latest/docs/html/libraries/base-4.5.1.0/Data-Maybe.html) for operations 
+returning a [`Maybe`](https://downloads.haskell.org/~ghc/7.4-latest/docs/html/libraries/base-4.5.1.0/Data-Maybe.html) for operations 
 that can fail. The `Maybe` type returned is compliant with the [Fantasy Land]
 (https://github.com/fantasyland/fantasy-land) specification. 
 
