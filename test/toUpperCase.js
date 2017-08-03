@@ -1,6 +1,6 @@
 const assert = require('assert')
-const toUpperCase = require('../toUpperCase.js')
-const bf = require('../index.js')
+const toUpperCase = require('../src/toUpperCase.js')
+const bf = require('../src/index.js')
 
 describe('toUpperCase', () => {
 

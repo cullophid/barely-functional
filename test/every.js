@@ -1,6 +1,6 @@
 const assert = require('assert')
-const every = require('../every.js')
-const bf = require('../index.js')
+const every = require('../src/every.js')
+const bf = require('../src/index.js')
 
 describe('every', () => {
 

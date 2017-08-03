@@ -1,6 +1,6 @@
 const assert = require('assert')
-const range = require('../range.js')
-const bf = require('../index.js')
+const range = require('../src/range.js')
+const bf = require('../src/index.js')
 
 describe('range', () => {
 

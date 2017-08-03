@@ -1,6 +1,6 @@
 const assert = require('assert')
-const compose = require('../compose.js')
-const bf = require('../index.js')
+const compose = require('../src/compose.js')
+const bf = require('../src/index.js')
 
 describe('compose', () => {
     const inc = x => x + 1

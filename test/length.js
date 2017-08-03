@@ -1,6 +1,6 @@
 const assert = require('assert')
-const length = require('../length.js')
-const bf = require('../index.js')
+const length = require('../src/length.js')
+const bf = require('../src/index.js')
 
 describe('length', () => {
 

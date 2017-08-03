@@ -1,6 +1,6 @@
 const assert = require('assert')
-const reduceRight = require('../reduceRight.js')
-const bf = require('../index.js')
+const reduceRight = require('../src/reduceRight.js')
+const bf = require('../src/index.js')
 
 describe('reduceRight', () => {
 

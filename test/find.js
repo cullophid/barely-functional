@@ -1,8 +1,8 @@
 const assert = require('assert')
-const find = require('../find.js')
-const Nothing = require('../Maybe').Nothing
-const Just = require('../Maybe').Just
-const bf = require('../index.js')
+const find = require('../src/find.js')
+const Nothing = require('../src/Maybe').Nothing
+const Just = require('../src/Maybe').Just
+const bf = require('../src/index.js')
 
 describe('find', () => {
 

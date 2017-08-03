@@ -1,6 +1,6 @@
 const assert = require('assert')
-const filter = require('../filter.js')
-const bf = require('../index.js')
+const filter = require('../src/filter.js')
+const bf = require('../src/index.js')
 
 describe('filter', () => {
 

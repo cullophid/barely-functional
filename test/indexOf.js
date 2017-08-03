@@ -1,8 +1,8 @@
 const assert = require('assert')
-const Nothing = require('../Maybe').Nothing
-const Just = require('../Maybe').Just
-const indexOf = require('../indexOf.js')
-const bf = require('../index.js')
+const Nothing = require('../src/Maybe').Nothing
+const Just = require('../src/Maybe').Just
+const indexOf = require('../src/indexOf.js')
+const bf = require('../src/index.js')
 
 describe('indexOf', () => {
 

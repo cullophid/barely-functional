@@ -1,6 +1,6 @@
 const assert = require('assert')
-const match = require('../match.js')
-const bf = require('../index.js')
+const match = require('../src/match.js')
+const bf = require('../src/index.js')
 
 describe('match', () => {
 

@@ -1,6 +1,6 @@
 const assert = require('assert')
-const split = require('../split.js')
-const bf = require('../index.js')
+const split = require('../src/split.js')
+const bf = require('../src/index.js')
 
 describe('split', () => {
 
