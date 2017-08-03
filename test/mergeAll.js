@@ -1,6 +1,6 @@
 const assert = require('assert')
-const mergeAll = require('../mergeAll.js')
-const bf = require('../index.js')
+const mergeAll = require('../src/mergeAll.js')
+const bf = require('../src/index.js')
 
 describe('mergeAll', () => {
 

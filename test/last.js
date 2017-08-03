@@ -1,6 +1,6 @@
 const assert = require('assert')
-const last = require('../last.js')
-const bf = require('../index.js')
+const last = require('../src/last.js')
+const bf = require('../src/index.js')
 
 describe('last', () => {
 

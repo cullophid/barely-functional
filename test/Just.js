@@ -1,6 +1,6 @@
 const assert = require('assert')
-const Nothing = require('../Maybe').Nothing
-const Just = require('../Maybe').Just
+const Nothing = require('../src/Maybe').Nothing
+const Just = require('../src/Maybe').Just
 const laws = require('./common/laws')
 
 describe('Just', () => {

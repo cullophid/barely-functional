@@ -1,6 +1,6 @@
 const assert = require('assert')
-const concat = require('../concat.js')
-const bf = require('../index.js')
+const concat = require('../src/concat.js')
+const bf = require('../src/index.js')
 
 describe('concat', () => {
 

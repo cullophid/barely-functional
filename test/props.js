@@ -1,6 +1,6 @@
 const assert = require('assert')
-const props = require('../props.js')
-const bf = require('../index.js')
+const props = require('../src/props.js')
+const bf = require('../src/index.js')
 
 describe('props', () => {
 

@@ -1,6 +1,6 @@
 const assert = require('assert')
-const append = require('../append.js')
-const bf = require('../index.js')
+const append = require('../src/append.js')
+const bf = require('../src/index.js')
 
 describe('append', () => {
 

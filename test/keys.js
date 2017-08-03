@@ -1,6 +1,6 @@
 const assert = require('assert')
-const keys = require('../keys.js')
-const bf = require('../index.js')
+const keys = require('../src/keys.js')
+const bf = require('../src/index.js')
 
 describe('keys', () => {
 

@@ -1,6 +1,6 @@
 const assert = require('assert')
-const reverse = require('../reverse.js')
-const bf = require('../index.js')
+const reverse = require('../src/reverse.js')
+const bf = require('../src/index.js')
 
 describe('reverse', () => {
 

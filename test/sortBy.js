@@ -1,6 +1,6 @@
 const assert = require('assert')
-const sortBy = require('../sortBy.js')
-const bf = require('../index.js')
+const sortBy = require('../src/sortBy.js')
+const bf = require('../src/index.js')
 
 describe('sortBy', () => {
 

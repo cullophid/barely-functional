@@ -1,6 +1,6 @@
 const assert = require('assert')
-const head = require('../head.js')
-const bf = require('../index.js')
+const head = require('../src/head.js')
+const bf = require('../src/index.js')
 
 describe('head', () => {
 

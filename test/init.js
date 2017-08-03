@@ -1,6 +1,6 @@
 const assert = require('assert')
-const init = require('../init.js')
-const bf = require('../index.js')
+const init = require('../src/init.js')
+const bf = require('../src/index.js')
 
 describe('init', () => {
 

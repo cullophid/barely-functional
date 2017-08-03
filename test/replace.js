@@ -1,6 +1,6 @@
 const assert = require('assert')
-const replace = require('../replace.js')
-const bf = require('../index.js')
+const replace = require('../src/replace.js')
+const bf = require('../src/index.js')
 
 describe('replace', () => {
 

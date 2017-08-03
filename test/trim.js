@@ -1,6 +1,6 @@
 const assert = require('assert')
-const trim = require('../trim.js')
-const bf = require('../index.js')
+const trim = require('../src/trim.js')
+const bf = require('../src/index.js')
 
 describe('trim', () => {
 

@@ -1,6 +1,6 @@
 const assert = require('assert')
-const map = require('../map.js')
-const bf = require('../index.js')
+const map = require('../src/map.js')
+const bf = require('../src/index.js')
 
 describe('map', () => {
 

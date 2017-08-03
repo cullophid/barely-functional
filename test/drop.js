@@ -1,6 +1,6 @@
 const assert = require('assert')
-const drop = require('../drop.js')
-const bf = require('../index.js')
+const drop = require('../src/drop.js')
+const bf = require('../src/index.js')
 
 describe('drop', () => {
 

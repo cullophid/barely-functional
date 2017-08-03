@@ -1,6 +1,6 @@
 const assert = require('assert')
-const reduce = require('../reduce.js')
-const bf = require('../index.js')
+const reduce = require('../src/reduce.js')
+const bf = require('../src/index.js')
 
 describe('reduce', () => {
 

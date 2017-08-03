@@ -1,6 +1,6 @@
 const assert = require('assert')
-const pluck = require('../pluck.js')
-const bf = require('../index.js')
+const pluck = require('../src/pluck.js')
+const bf = require('../src/index.js')
 
 describe('pluck', () => {
 

@@ -1,18 +1,42 @@
 {
   "name": "barely-functional",
   "version": "3.1.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A tiny functional programming library",
+  "main": "dist/index.js",
+  "jsnext:main": "src/index.js",
+  "module": "src/index.js",
+  "files": ["src", "dist"],
   "scripts": {
-    "test": "mocha --recursive"
+    "start": "npm run build",
+    "clean": "rm dist/*.js*",
+    "build": "npm run clean; npm run build:all && npm run build:basic",
+    "build:all": "rollup -cm -n ex -f umd -i src/index.js -o dist/index.js",
+    "build:basic": "rollup -cm -n ex -f umd -i src/basic.js -o dist/basic.js",
+    "test": "mocha --recursive",
+    "prepublish": "npm run build",
+    "release": "npm run build && npm run test && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish"
   },
-  "author": "",
+  "author": "Andreas Møller",
   "license": "ISC",
   "repository": {
     "type": "git",
     "url": "https://github.com/cullophid/barely-functional"
   },
+  "babel": {
+    "presets": "es2015",
+    "env": {
+      "production": {
+        "presets": [
+          "babili"
+        ]
+      }
+    }
+  },
   "devDependencies": {
-    "mocha": "^2.3.4"
+    "mocha": "^2.3.4",
+    "babili": "^0.1.4",
+    "rollup": "^0.45.2",
+    "rollup-plugin-babili": "^3.1.0",
+    "rollup-plugin-commonjs": "^8.0.2"
   }
 }

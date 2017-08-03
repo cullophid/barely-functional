@@ -1,6 +1,6 @@
 const assert = require('assert')
-const join = require('../join.js')
-const bf = require('../index.js')
+const join = require('../src/join.js')
+const bf = require('../src/index.js')
 
 describe('join', () => {
 

@@ -1,6 +1,6 @@
 const assert = require('assert')
-const toLowerCase = require('../toLowerCase.js')
-const bf = require('../index.js')
+const toLowerCase = require('../src/toLowerCase.js')
+const bf = require('../src/index.js')
 
 describe('toLowerCase', () => {
 

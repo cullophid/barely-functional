@@ -1,6 +1,6 @@
 const assert = require('assert')
-const take = require('../take.js')
-const bf = require('../index.js')
+const take = require('../src/take.js')
+const bf = require('../src/index.js')
 
 describe('take', () => {
 
