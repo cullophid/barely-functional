@@ -1,10 +1,12 @@
-'use strict'
-
-module.exports = (f) => function () {
-  let args = []
-  const curried = function () {
-    args = args.concat(Array.prototype.slice.call(arguments))
-    return (args.length >= f.length) ? f.apply(null, args) : curried
+const curry = (f, args=[]) => {
+  function curried() {
+    const nextArgs = args.concat(Array.prototype.slice.call(arguments))
+    return (nextArgs.length === f.length) 
+      ? f.apply(null, nextArgs)
+      : curry(f, nextArgs)
   }
-  return curried.apply(null, arguments)
+
+  return curried
 }
+
+module.exports = curry

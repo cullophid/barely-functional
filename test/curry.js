@@ -14,4 +14,11 @@ describe('curry', () => {
         assert.equal(add(1)(2), add(1, 2))
     })
 
+    it('should not persist arguments between calls', () => {
+      const add = bf.curry((a, b) => a + b)
+      const add10 = add(10)
+      const add1 = add(1)
+      assert.equal(add10(10), 20)
+      assert.equal(add1(1), 2)
+    })
 })
